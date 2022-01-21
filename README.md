@@ -68,19 +68,31 @@ Given these values we have one more condition that water in the storage tank
 should always be greater than 30000. We were given the values of water 
 precipitated each month, let that be WPj for the month j. For this we can define, 
 the storage at the beginning of the month as 
+
 Sj = Sj-1 + WPj-1 - Wprecip,j-1
+
 Objective Function:
-Minimize Total Cost = ∑{(𝑊𝑊𝑎𝑡𝑒𝑟 𝐶𝑜𝑟𝑝,𝑗 ∗ (𝑋𝑎 ∗ 𝑅𝑎 + 𝑋𝑏 ∗ 𝑅𝑏
-)) + (𝑊𝑝𝑟𝑒𝑐𝑖𝑝,𝑗 ∗ 𝑅𝑝𝑟𝑒𝑐𝑖𝑝,𝑗)}
+
+Minimize Total Cost = ∑{(𝑊𝑊𝑎𝑡𝑒𝑟 𝐶𝑜𝑟𝑝,𝑗 ∗ (𝑋𝑎 ∗ 𝑅𝑎 + 𝑋𝑏 ∗ 𝑅𝑏)) + (𝑊𝑝𝑟𝑒𝑐𝑖𝑝,𝑗 ∗ 𝑅𝑝𝑟𝑒𝑐𝑖𝑝,𝑗)}
+
 Subject to the following constraints
+
 Wi,j >= 0 for all i,j (non-negativity constraint)
+
 Sj >= 30000 gallons for all j (Storage tank constraint) 
+
 Wprecip,j > = 0.25 * (Wprecip,j + WWater Corp, j )
+
 Wprecip,j + WWater Corp, j >= Forecasts
+
 Xa + Xb = 1
+
 Xa is binary
+
 Xb is binary
+
 WWater Corp, j >= (25000* Xa + 30000* Xb ) (Water Corp base Constraint)
+
 From the formulation of the problem above we can see that it is a nonlinear
 optimization problem as the objective function we are trying to solve has a 
 multiplicative component between two variables. Using SAS optimization techniques, 
