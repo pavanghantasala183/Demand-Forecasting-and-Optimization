@@ -1,5 +1,6 @@
 # Demand-Forecasting-and-Optimization
-1. Introduction
+# 1. Introduction
+
 Building T is being supplied with water by two sources. One source is through contracts 
 from Water Corporation (Main Water) and the other source is through internal 
 precipitation mechanism (Cooling Water). We have water consumption data for 92 
@@ -18,7 +19,8 @@ next four weeks and use these estimates to find the optimal contract from the wa
 corporation and how much precipitation water should be manufactured so that it 
 reduces the total water cost for the company.
 
-2. Forecasting
+# 2. Forecasting
+
 We have used the ARIMA model, Auto Regressive and Integrated Moving Average 
 model, for forecasting. As can be seen from the below table, the probability value is 
 greater than the significance level of 0.05, so the model we chose, the ARIMA model, is 
@@ -42,7 +44,8 @@ Week Forecasts
 3 53514.76
 4 53675.54
 
-3. Optimization
+# 3. Optimization
+
 From the forecast estimates from the model, we have the demand for water 
 consumption in the next four weeks. We can use optimization and operations 
 research techniques to find out the best contract alternative and respective 
@@ -51,19 +54,25 @@ We can formulate the problem as an optimization problem trying to reduce the
 total cost and use the corresponding LP/MILP/NLP problems to solve it.
 Our variables in the model would be the amount of water ordered from each 
 source in each week. 
+
 Wij – amount of water ordered from ith source in jth week
- i -> {Water Corp., Storage Tank}
+
+i -> {Water Corp., Storage Tank}
+
 j -> { 1,2,3,4} (Next 4 weeks)
+
 Let Rij be the rate of water per gallon sourced from ith source and jth week same 
 as above. For the first two weeks Rprecip is 0.18 dollars per gallon and next two 
 weeks it is 0.10 dollars as mentioned in the case. RWater Corp,j would be constant 
 either 0.15 dollars if first contract is selected or 0.12 dollars if second contrat is 
 selected.
+
 We also need two more binary variables one for each contract (xa,xb), with their 
 values suggesting whether that particular contract is selected or not. Only one of 
 these variables should be having 1 and the other one should be 0 which can be 
 implemented using a constraint. (xa + xb = 1) makes only one of the variable 1 and 
 the other 0.
+
 Given these values we have one more condition that water in the storage tank 
 should always be greater than 30000. We were given the values of water 
 precipitated each month, let that be WPj for the month j. For this we can define, 
